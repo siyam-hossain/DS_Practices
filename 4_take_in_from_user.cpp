@@ -33,6 +33,7 @@ int main(int argc, char const *argv[])
     }
     
     node* temp = head;
+    
     cout<<"head->";
     while (temp != NULL)
     {
