@@ -18,7 +18,7 @@ class node
 
 void in_at_head(node* &head, node* &tail, int value);
 //delete at head
-void del_at_head(node* &head);
+void del_at_tail(node* head);
 void print(node* head);
 
 int main(int argc, char const *argv[])
@@ -33,11 +33,11 @@ int main(int argc, char const *argv[])
         in_at_head(head,tail,value);
     }
 
-    cout<<"Before delete a head"<<endl;
+    cout<<"Before delete a tail"<<endl;
     print(head);
     
-    cout<<"Before delete a head"<<endl;
-    del_at_head(head);
+    cout<<"Before delete a tail"<<endl;
+    del_at_tail(head);
     print(head);
     
     
@@ -58,11 +58,18 @@ void in_at_head(node* &head, node* &tail, int value)
     head = newNode;
 }
 
-void del_at_head(node* &head)
+void del_at_tail(node* head)
 {
-    node* del_node = head;
-    head = head->next;
-    delete del_node;
+    node* temp = head;
+    while (temp->next != NULL)
+    {
+        // cout<<temp->value<<" ";
+        temp = temp->next;
+    }
+    cout<<temp->value<<endl;
+    delete temp->next;
+    temp->next = NULL;
+
 }
 
 void print(node* head)

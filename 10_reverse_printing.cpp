@@ -61,4 +61,5 @@ void reverse(node* temp)
     }
     reverse(temp->next);
     cout<<temp->value<<" ";
+    
 }
